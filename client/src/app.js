@@ -92,15 +92,15 @@ class App extends React.Component {
         var str = ''
 
         if (!result.data.students.length) {
-            result.data.students = 'None'
+            str = 'None'
+        } else {
+            result.data.students.forEach(s => {
+                if (str.length) {
+                    str += ','
+                }
+                str += s
+            })
         }
-
-        result.data.students.forEach(s => {
-            if (str.length) {
-                str+=','
-            }
-            str+=s
-        })
 
         this.state.commonResult = `Students: ${str}`
 
